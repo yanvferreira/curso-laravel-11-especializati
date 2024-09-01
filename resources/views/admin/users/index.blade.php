@@ -1,6 +1,9 @@
 <html>
     <body>
         <h1>Usuários:</h1>
+
+        <a href="{{ route('users.create') }}">Cadastrar Usuário</a>
+
         <table>
             <thead>
                 <tr>
