@@ -11,14 +11,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @forelse ($users as $user)
+                <tr>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email}}</td>
+                    <td>{{ $user->created_at }}</td>
+                    <td>-</td>
+                </tr>
+                @empty
                     <tr>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email}}</td>
-                        <td>{{ $user->created_at }}</td>
-                        <td>-</td>
+                        <td colspan="4">Nenhum usuário no banco</td>
                     </tr>
-                @endforeach
+                @endforelse 
+
             </tbody>
         </table>
     </body>
