@@ -1,34 +1,36 @@
-<html>
-    <body>
-        <h1>Usuários:</h1>
+@extends('admin.layouts.app')
 
-        <a href="{{ route('users.create') }}">Cadastrar Usuário</a>
+@section('title', 'Lista de Usuários')
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Criado em</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($users as $user)
-                <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email}}</td>
-                    <td>{{ $user->created_at }}</td>
-                    <td>-</td>
-                </tr>
-                @empty
-                    <tr>
-                        <td colspan="4">Nenhum usuário no banco</td>
-                    </tr>
-                @endforelse 
+@section('content')
+<h1>Usuários:</h1>
 
-            </tbody>
-        </table>
-        {{ $users->links()}}
-    </body>
-</html>
+<a href="{{ route('users.create') }}">Cadastrar Usuário</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Criado em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($users as $user)
+        <tr>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email}}</td>
+            <td>{{ $user->created_at }}</td>
+            <td>-</td>
+        </tr>
+        @empty
+            <tr>
+                <td colspan="4">Nenhum usuário no banco</td>
+            </tr>
+        @endforelse 
+
+    </tbody>
+</table>
+{{ $users->links()}}
+@endsection
