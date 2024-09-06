@@ -5,9 +5,7 @@
 @section('content')
 <h1>Usuários:</h1>
 
-@if (session()->has('success'))
-    {{ session('success') }}
-@endif
+<x-alert/>
 
 <p>
     <a href="{{ route('users.create') }}">Cadastrar Usuário</a>
